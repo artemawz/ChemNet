@@ -1,0 +1,307 @@
+[gd_scene format=3 uid="uid://dwvp6widiaueu"]
+
+[ext_resource type="Script" uid="uid://gtyto8lewcct" path="res://add_chemical_process.gd" id="1_s8dt8"]
+[ext_resource type="PackedScene" uid="uid://bhbe8x57mes5t" path="res://add_chemical_window.tscn" id="2_u5j7y"]
+[ext_resource type="PackedScene" uid="uid://rxsxg2wuhhm0" path="res://add_machine_window.tscn" id="3_u5j7y"]
+
+[node name="Window" type="Window" unique_id=1361484774]
+oversampling_override = 1.0
+title = "Add Chemical Process"
+initial_position = 2
+size = Vector2i(640, 640)
+script = ExtResource("1_s8dt8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="." unique_id=74080296]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentMargin" type="MarginContainer" parent="." unique_id=1427220928]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="ContentMargin" unique_id=483068631]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="ChemicalRow" type="HBoxContainer" parent="ContentMargin/Content" unique_id=1611766411]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ChemicalTitle" type="Label" parent="ContentMargin/Content/ChemicalRow" unique_id=1240870286]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Chemical"
+
+[node name="ChemicalSelection" type="OptionButton" parent="ContentMargin/Content/ChemicalRow" unique_id=1940882503]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddChemical" type="Button" parent="ContentMargin/Content/ChemicalRow" unique_id=1505343032]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add"
+
+[node name="RemoveSelectedChemical" type="Button" parent="ContentMargin/Content/ChemicalRow" unique_id=802329558]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Remove"
+
+[node name="MachineRow" type="HBoxContainer" parent="ContentMargin/Content" unique_id=51951288]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MachineTitle" type="Label" parent="ContentMargin/Content/MachineRow" unique_id=264874143]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Machine"
+
+[node name="MachineSelection" type="OptionButton" parent="ContentMargin/Content/MachineRow" unique_id=220803425]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AddMachine" type="Button" parent="ContentMargin/Content/MachineRow" unique_id=624785135]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add"
+
+[node name="RemoveSelectedMachine" type="Button" parent="ContentMargin/Content/MachineRow" unique_id=1107429992]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Remove"
+
+[node name="ProcessingConditionsRow" type="HBoxContainer" parent="ContentMargin/Content" unique_id=1098825187]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ProcessingConditionsTitle" type="Label" parent="ContentMargin/Content/ProcessingConditionsRow" unique_id=982539462]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Processing Conditions"
+
+[node name="IncludeTempRequirement" type="CheckBox" parent="ContentMargin/Content/ProcessingConditionsRow" unique_id=1709898691]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TempRequirement" type="SpinBox" parent="ContentMargin/Content/ProcessingConditionsRow" unique_id=102982164]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+suffix = "°C"
+
+[node name="IncludePressureRequirement" type="CheckBox" parent="ContentMargin/Content/ProcessingConditionsRow" unique_id=838885704]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PressureRequirement" type="SpinBox" parent="ContentMargin/Content/ProcessingConditionsRow" unique_id=580594701]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+step = 0.1
+value = 1.0
+editable = false
+suffix = "Bar"
+
+[node name="InputHeaderRow" type="HBoxContainer" parent="ContentMargin/Content" unique_id=1228403248]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="InputTitle" type="Label" parent="ContentMargin/Content/InputHeaderRow" unique_id=1271257027]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Inputs"
+
+[node name="InputTitleHint" type="Label" parent="ContentMargin/Content/InputHeaderRow" unique_id=1967271753]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354553, 1)
+text = "Can be \"normal\" item or chemical"
+vertical_alignment = 1
+
+[node name="AddInputElement" type="Button" parent="ContentMargin/Content/InputHeaderRow" unique_id=1479094680]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add"
+
+[node name="RemoveSelectedInputElement" type="Button" parent="ContentMargin/Content/InputHeaderRow" unique_id=688352932]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Remove"
+
+[node name="Inputs" type="ItemList" parent="ContentMargin/Content" unique_id=1042971694]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainOutputRow" type="HBoxContainer" parent="ContentMargin/Content" unique_id=1132768258]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MainOutputTitle" type="Label" parent="ContentMargin/Content/MainOutputRow" unique_id=1853408589]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Main Output Amount"
+
+[node name="MainOutputAmount" type="SpinBox" parent="ContentMargin/Content/MainOutputRow" unique_id=200291814]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 1.0
+max_value = 2147483600.0
+value = 1.0
+editable = false
+suffix = "Item(s)"
+
+[node name="OutputHeaderRow" type="HBoxContainer" parent="ContentMargin/Content" unique_id=1445697556]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="OutputTitle" type="Label" parent="ContentMargin/Content/OutputHeaderRow" unique_id=1281254711]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Additional Outputs"
+
+[node name="OutputTitleHint" type="Label" parent="ContentMargin/Content/OutputHeaderRow" unique_id=701083757]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354553, 1)
+text = "Can be \"normal\" item or chemical"
+vertical_alignment = 1
+
+[node name="AddOutputElement" type="Button" parent="ContentMargin/Content/OutputHeaderRow" unique_id=1486753560]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add"
+
+[node name="RemoveSelectedOutputElement" type="Button" parent="ContentMargin/Content/OutputHeaderRow" unique_id=1824461056]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Remove"
+
+[node name="Outputs" type="ItemList" parent="ContentMargin/Content" unique_id=1644967097]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WindowButtonRow" type="HBoxContainer" parent="ContentMargin/Content" unique_id=1403214871]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="Cancel" type="Button" parent="ContentMargin/Content/WindowButtonRow" unique_id=1932442337]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="AddProcess" type="Button" parent="ContentMargin/Content/WindowButtonRow" unique_id=752246642]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add Process"
+
+[node name="AddChemicalWindow" parent="." unique_id=1796987513 instance=ExtResource("2_u5j7y")]
+unique_name_in_owner = true
+visible = false
+
+[node name="AddMachineWindow" parent="." unique_id=1578422246 instance=ExtResource("3_u5j7y")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ConfirmChemicalRemoval" type="ConfirmationDialog" parent="." unique_id=1656158589]
+unique_name_in_owner = true
+initial_position = 2
+size = Vector2i(256, 80)
+unresizable = true
+always_on_top = true
+ok_button_text = "Confirm"
+
+[node name="ConfirmMachineRemoval" type="ConfirmationDialog" parent="." unique_id=1187082930]
+unique_name_in_owner = true
+initial_position = 2
+size = Vector2i(256, 80)
+unresizable = true
+always_on_top = true
+ok_button_text = "Confirm"
+
+[node name="ConfirmInputRemoval" type="ConfirmationDialog" parent="." unique_id=2024572399]
+unique_name_in_owner = true
+initial_position = 2
+size = Vector2i(256, 80)
+unresizable = true
+always_on_top = true
+ok_button_text = "Confirm"
+
+[node name="ConfirmOutputRemoval" type="ConfirmationDialog" parent="." unique_id=382635131]
+unique_name_in_owner = true
+initial_position = 2
+size = Vector2i(256, 80)
+unresizable = true
+always_on_top = true
+ok_button_text = "Confirm"
+
+[node name="ConfirmCancellation" type="ConfirmationDialog" parent="." unique_id=62927176]
+unique_name_in_owner = true
+title = "Cancel process?"
+initial_position = 2
+size = Vector2i(328, 80)
+unresizable = true
+always_on_top = true
+ok_button_text = "Confirm"
+dialog_text = "Do you really wanna cancel the process?"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="item_selected" from="ContentMargin/Content/ChemicalRow/ChemicalSelection" to="." method="_on_chemical_selection_item_selected"]
+[connection signal="pressed" from="ContentMargin/Content/ChemicalRow/AddChemical" to="." method="_on_add_chemical_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/ChemicalRow/RemoveSelectedChemical" to="." method="_on_remove_selected_chemical_pressed"]
+[connection signal="item_selected" from="ContentMargin/Content/MachineRow/MachineSelection" to="." method="_on_machine_selection_item_selected"]
+[connection signal="pressed" from="ContentMargin/Content/MachineRow/AddMachine" to="." method="_on_add_machine_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/MachineRow/RemoveSelectedMachine" to="." method="_on_remove_selected_machine_pressed"]
+[connection signal="toggled" from="ContentMargin/Content/ProcessingConditionsRow/IncludeTempRequirement" to="." method="_on_include_temp_requirement_toggled"]
+[connection signal="toggled" from="ContentMargin/Content/ProcessingConditionsRow/IncludePressureRequirement" to="." method="_on_include_pressure_requirement_toggled"]
+[connection signal="pressed" from="ContentMargin/Content/InputHeaderRow/AddInputElement" to="." method="_on_add_input_element_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/InputHeaderRow/RemoveSelectedInputElement" to="." method="_on_remove_selected_input_element_pressed"]
+[connection signal="focus_exited" from="ContentMargin/Content/Inputs" to="." method="_on_inputs_focus_exited"]
+[connection signal="item_selected" from="ContentMargin/Content/Inputs" to="." method="_on_inputs_item_selected"]
+[connection signal="pressed" from="ContentMargin/Content/OutputHeaderRow/AddOutputElement" to="." method="_on_add_output_element_pressed"]
+[connection signal="pressed" from="ContentMargin/Content/OutputHeaderRow/RemoveSelectedOutputElement" to="." method="_on_remove_selected_output_element_pressed"]
+[connection signal="focus_exited" from="ContentMargin/Content/Outputs" to="." method="_on_outputs_focus_exited"]
+[connection signal="item_selected" from="ContentMargin/Content/Outputs" to="." method="_on_outputs_item_selected"]
+[connection signal="pressed" from="ContentMargin/Content/WindowButtonRow/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="chemical_added" from="AddChemicalWindow" to="." method="_on_add_chemical_window_chemical_added"]
+[connection signal="close_requested" from="AddChemicalWindow" to="." method="_on_add_chemical_window_close_requested"]
+[connection signal="close_requested" from="AddMachineWindow" to="." method="_on_add_machine_window_close_requested"]
+[connection signal="machine_added" from="AddMachineWindow" to="." method="_on_add_machine_window_machine_added"]
+[connection signal="confirmed" from="ConfirmChemicalRemoval" to="." method="_on_confirm_chemical_removal_confirmed"]
+[connection signal="confirmed" from="ConfirmMachineRemoval" to="." method="_on_confirm_machine_removal_confirmed"]
+[connection signal="confirmed" from="ConfirmInputRemoval" to="." method="_on_confirm_input_removal_confirmed"]
+[connection signal="confirmed" from="ConfirmOutputRemoval" to="." method="_on_confirm_output_removal_confirmed"]
+[connection signal="confirmed" from="ConfirmCancellation" to="." method="_on_confirm_cancellation_confirmed"]

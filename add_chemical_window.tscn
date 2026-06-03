@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://bhbe8x57mes5t"]
+
+[ext_resource type="Script" uid="uid://bdrvasa0rft4d" path="res://add_chemical_window.gd" id="1_kx42d"]
+
+[node name="AddChemicalWindow" type="Window" unique_id=1796987513]
+oversampling_override = 1.0
+title = "Add Chemical"
+initial_position = 2
+size = Vector2i(512, 256)
+transient = true
+exclusive = true
+unresizable = true
+minimize_disabled = true
+maximize_disabled = true
+script = ExtResource("1_kx42d")
+
+[node name="Background" type="Panel" parent="." unique_id=582651893]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContentMarging" type="MarginContainer" parent="." unique_id=1828924960]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Content" type="VBoxContainer" parent="ContentMarging" unique_id=1040253558]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameRow" type="HBoxContainer" parent="ContentMarging/Content" unique_id=1503758336]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NameTitle" type="Label" parent="ContentMarging/Content/NameRow" unique_id=423024935]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name"
+
+[node name="NameHint" type="Label" parent="ContentMarging/Content/NameRow" unique_id=477683341]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.46229059, 0.46229059, 0.46229059, 1)
+text = "Must be unique"
+
+[node name="NameInput" type="LineEdit" parent="ContentMarging/Content/NameRow" unique_id=2109070204]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "ChemicalName"
+context_menu_enabled = false
+emoji_menu_enabled = false
+
+[node name="StateRow" type="HBoxContainer" parent="ContentMarging/Content" unique_id=226217829]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StateTitle" type="Label" parent="ContentMarging/Content/StateRow" unique_id=383306929]
+unique_name_in_owner = true
+layout_mode = 2
+text = "State"
+
+[node name="State" type="OptionButton" parent="ContentMarging/Content/StateRow" unique_id=897241871]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "Solid"
+popup/item_0/id = 0
+popup/item_1/text = "Liquid"
+popup/item_1/id = 1
+popup/item_2/text = "Gas"
+popup/item_2/id = 2
+
+[node name="Warning" type="Label" parent="ContentMarging/Content" unique_id=863290933]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(1, 0.84000003, 0.36, 1)
+
+[node name="Buttons" type="HBoxContainer" parent="ContentMarging/Content" unique_id=1178674534]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="Cancel" type="Button" parent="ContentMarging/Content/Buttons" unique_id=1475324282]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cancel"
+
+[node name="Add" type="Button" parent="ContentMarging/Content/Buttons" unique_id=1287892010]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Add"
+
+[connection signal="about_to_popup" from="." to="." method="_on_about_to_popup"]
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
+[connection signal="text_changed" from="ContentMarging/Content/NameRow/NameInput" to="." method="_on_name_input_text_changed"]
+[connection signal="pressed" from="ContentMarging/Content/Buttons/Cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="ContentMarging/Content/Buttons/Add" to="." method="_on_add_pressed"]
