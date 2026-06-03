@@ -18,11 +18,14 @@ config/icon="res://icon.svg"
 
 ChemicalRegister="*uid://c6yeyrvd60d03"
 MachineRegister="*uid://bv1b0aq2pvgnw"
+ItemRegister="*uid://bigh243jag3u2"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [editor_plugins]
 
